@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Money clientCardMoney = new Money(new BigDecimal(2000),Currency.getInstance(Locale.US));
         Money clientCashMoney = new Money(new BigDecimal(1000),Currency.getInstance(Locale.US));
-        DebitCard clientDebitCard = new DebitCard(clientCardMoney, 1234,false);
+        DebitCard clientDebitCard = new DebitCard(clientCardMoney, 1234,false,"12345");
         Client newClient = new Client(clientDebitCard, clientCashMoney, "Ivan Ivanov");
 
         Atm atm = new Atm();
