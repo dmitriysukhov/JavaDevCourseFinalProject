@@ -27,7 +27,7 @@ class AtmTest {
 
     void tryTakeMoney(Client client, Money money) {
         try {
-            atm.takeMoney(client, client.getCard(), money);
+            atm.takeMoney(client, client.getCard(), money, 1111);
         }
         catch (Exception ex) {
             log.severe(ex.getMessage());
