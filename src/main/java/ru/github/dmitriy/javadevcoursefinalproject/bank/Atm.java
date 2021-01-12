@@ -14,7 +14,7 @@ import java.util.Set;
 @Log
 public class Atm {
     private Set<TakeMoneyRequest> requests = new HashSet<TakeMoneyRequest>();
-    private DebitCardStorage cardStorage;
+    private DebitCardStorage cardStorage = new SimpleDebitCardStorage();
 
     public void takeMoney(Client client, DebitCard card, Money money, int pin) throws Exception {
         if (cardStorage.getDebitCardByNumber(card.getNumber()).isLocked())
