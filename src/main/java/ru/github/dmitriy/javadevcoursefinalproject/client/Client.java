@@ -7,6 +7,9 @@ import ru.github.dmitriy.javadevcoursefinalproject.bank.DebitCard;
 import ru.github.dmitriy.javadevcoursefinalproject.money.Money;
 import ru.github.dmitriy.javadevcoursefinalproject.bank.Atm;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -15,7 +18,7 @@ public class Client {
     private Money cash;
     private String name;
 
-    public void takeMoneyFromDebitCard(Atm atm, Money money) throws Exception {
-            atm.takeMoney(this, card, money);
+    public void takeMoneyFromDebitCard(Atm atm, Money money, @Min(0000) @Max(9999) int pin) throws Exception {
+            atm.takeMoney(this, card, money, pin);
     }
 }

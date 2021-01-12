@@ -16,8 +16,8 @@ import java.util.Locale;
 class AtmTest {
     Money clientCardMoney = new Money(new BigDecimal(2000), Currency.getInstance(Locale.US));
     Money clientCashMoney = new Money(new BigDecimal(1000),Currency.getInstance(Locale.US));
-    DebitCard clientDebitCard = new DebitCard(clientCardMoney, 1234,false,"12345");
-    DebitCard clientDebitCard2 = new DebitCard(clientCardMoney, 4321,false,"54321");
+    DebitCard clientDebitCard = new DebitCard("12345",clientCardMoney);
+    DebitCard clientDebitCard2 = new DebitCard("54321",clientCardMoney);
 
     Client newClient = new Client(clientDebitCard, clientCashMoney, "Ivan Ivanov");
     Client newClient2 = new Client(clientDebitCard2, clientCashMoney, "Sergey Ivanov");

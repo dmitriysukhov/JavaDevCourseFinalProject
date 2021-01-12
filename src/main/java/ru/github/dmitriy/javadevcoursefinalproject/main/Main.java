@@ -13,13 +13,13 @@ public class Main {
     public static void main(String[] args) {
         Money clientCardMoney = new Money(new BigDecimal(2000),Currency.getInstance(Locale.US));
         Money clientCashMoney = new Money(new BigDecimal(1000),Currency.getInstance(Locale.US));
-        DebitCard clientDebitCard = new DebitCard(clientCardMoney, 1234,false,"12345");
+        DebitCard clientDebitCard = new DebitCard("12345",clientCardMoney);
         Client newClient = new Client(clientDebitCard, clientCashMoney, "Ivan Ivanov");
 
         Atm atm = new Atm();
         Money requestMoney = new Money(new BigDecimal(100),Currency.getInstance(Locale.US));
         try {
-            atm.takeMoney(newClient, newClient.getCard(), requestMoney);
+            atm.takeMoney(newClient, newClient.getCard(), requestMoney, 1111);
         }
         catch (Exception ex) {
             System.out.println(ex.getMessage());
