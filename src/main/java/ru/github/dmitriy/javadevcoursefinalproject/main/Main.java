@@ -3,9 +3,7 @@ package ru.github.dmitriy.javadevcoursefinalproject.main;
 import lombok.extern.java.Log;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import ru.github.dmitriy.javadevcoursefinalproject.bank.atm.Atm;
-import ru.github.dmitriy.javadevcoursefinalproject.bank.card.DebitCard;
 import ru.github.dmitriy.javadevcoursefinalproject.bank.exception.CardDataException;
 import ru.github.dmitriy.javadevcoursefinalproject.bank.exception.CardDataFatalException;
 import ru.github.dmitriy.javadevcoursefinalproject.beans.SpringConfig;
@@ -22,8 +20,8 @@ public class Main {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Atm atm = context.getBean("MyAtm", Atm.class);
-        Client newClient = context.getBean("MyClient", Client.class);
+        Atm atm = context.getBean("myAtm", Atm.class);
+        Client newClient = context.getBean("myClient", Client.class);
 
         Money requestMoney = new Money(new BigDecimal(100),Currency.getInstance(Locale.US));
         try {

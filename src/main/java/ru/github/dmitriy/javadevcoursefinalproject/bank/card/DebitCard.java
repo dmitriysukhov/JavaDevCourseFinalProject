@@ -3,7 +3,6 @@ package ru.github.dmitriy.javadevcoursefinalproject.bank.card;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
-import ru.github.dmitriy.javadevcoursefinalproject.bank.card.BankCard;
 import ru.github.dmitriy.javadevcoursefinalproject.money.Money;
 
 //дебетовая пластиковая карта

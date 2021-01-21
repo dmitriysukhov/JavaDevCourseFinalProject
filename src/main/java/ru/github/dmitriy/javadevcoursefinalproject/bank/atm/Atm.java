@@ -29,7 +29,7 @@ public class Atm {
 
     public void takeMoney(Client client, DebitCard card, Money money, int pin) throws CardDataException, CardDataFatalException {
         //получение данных о карте с сервера
-        Predicate<CardData> predicate = CardData -> CardData.getCard().getNumber().equals(card.getNumber());
+        Predicate<CardData<DebitCard>> predicate = cardData -> cardData.getCard().getNumber().equals(card.getNumber());
         Optional<CardData<DebitCard>> optionalCardData = cardStorage.getDebitCardByPredicate(predicate);
 
         if (!optionalCardData.isPresent())

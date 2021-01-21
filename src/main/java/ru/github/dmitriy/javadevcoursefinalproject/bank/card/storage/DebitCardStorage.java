@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public interface DebitCardStorage {
-    Optional<CardData<DebitCard>> getDebitCardByPredicate(Predicate<CardData> predicate);
+    Optional<CardData<DebitCard>> getDebitCardByPredicate(Predicate<CardData<DebitCard>> predicate);
 }

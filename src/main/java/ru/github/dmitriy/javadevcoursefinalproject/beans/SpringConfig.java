@@ -21,19 +21,19 @@ public class SpringConfig {
     Environment env;
 
     @Bean
-    public Atm MyAtm() {
+    public Atm myAtm() {
         return new Atm();
     }
 
     @Bean
-    public DebitCard ClientDebitCard()
+    public DebitCard clientDebitCard()
     {
         Money clientCardMoney = new Money(new BigDecimal(env.getProperty("money.balance")), Currency.getInstance(Locale.US));
         return new DebitCard(env.getProperty("debitCard.number"), clientCardMoney);
     }
 
     @Bean
-    public Client MyClient() {
-        return new Client(ClientDebitCard(),env.getProperty("client.name"));
+    public Client myClient() {
+        return new Client(clientDebitCard(),env.getProperty("client.name"));
     }
 }
