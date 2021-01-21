@@ -1,4 +1,4 @@
-package ru.github.dmitriy.javadevcoursefinalproject.bank;
+package ru.github.dmitriy.javadevcoursefinalproject.bank.card;
 
 
 import lombok.AllArgsConstructor;

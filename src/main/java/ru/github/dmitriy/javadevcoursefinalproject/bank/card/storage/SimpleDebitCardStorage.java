@@ -1,14 +1,14 @@
-package ru.github.dmitriy.javadevcoursefinalproject.bank;
+package ru.github.dmitriy.javadevcoursefinalproject.bank.card.storage;
 
-import lombok.AllArgsConstructor;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.card.CardData;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.card.DebitCard;
 import ru.github.dmitriy.javadevcoursefinalproject.money.Money;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Currency;
-import java.util.List;
-import java.util.Locale;
-    //класс для реализации простейшего хранилища банковских карт
+import java.util.*;
+import java.util.function.Predicate;
+
+//класс для реализации простейшего хранилища банковских карт
 public class SimpleDebitCardStorage implements DebitCardStorage {
     private List<CardData<DebitCard>> storage;
 
@@ -24,11 +24,10 @@ public class SimpleDebitCardStorage implements DebitCardStorage {
         storage.add(cardData2);
     }
 
-    @Override
-    public CardData<DebitCard> getDebitCardByNumber(String number) {
-        return storage.stream()
-            .filter(CardData -> CardData.getCard().getNumber() == number)
-            .findFirst()
-            .get();
+    public Optional<CardData<DebitCard>> getDebitCardByPredicate(Predicate<CardData> predicate) {
+        Optional<CardData<DebitCard>> result = storage.stream()
+            .filter(predicate)
+            .findFirst();
+        return result;
     }
 }

@@ -3,8 +3,9 @@ package ru.github.dmitriy.javadevcoursefinalproject.bank;
 import static org.junit.jupiter.api.Assertions.*;
 
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
 import org.junit.jupiter.api.Test;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.atm.Atm;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.card.DebitCard;
 import ru.github.dmitriy.javadevcoursefinalproject.client.Client;
 import ru.github.dmitriy.javadevcoursefinalproject.money.Money;
 
@@ -19,8 +20,8 @@ class AtmTest {
     DebitCard clientDebitCard = new DebitCard("12345",clientCardMoney);
     DebitCard clientDebitCard2 = new DebitCard("54321",clientCardMoney);
 
-    Client newClient = new Client(clientDebitCard, clientCashMoney, "Ivan Ivanov");
-    Client newClient2 = new Client(clientDebitCard2, clientCashMoney, "Sergey Ivanov");
+    Client newClient = new Client(clientDebitCard,"Ivan Ivanov");
+    Client newClient2 = new Client(clientDebitCard2, "Sergey Ivanov");
 
     Money requestMoney = new Money(new BigDecimal(100),Currency.getInstance(Locale.US));
     Atm atm = new Atm();
