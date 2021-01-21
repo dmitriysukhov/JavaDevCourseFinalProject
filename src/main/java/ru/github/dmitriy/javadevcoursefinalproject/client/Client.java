@@ -3,19 +3,25 @@ package ru.github.dmitriy.javadevcoursefinalproject.client;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import ru.github.dmitriy.javadevcoursefinalproject.bank.DebitCard;
+import org.springframework.stereotype.Component;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.atm.Atm;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.exception.CardDataException;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.exception.CardDataFatalException;
+import ru.github.dmitriy.javadevcoursefinalproject.bank.card.DebitCard;
 import ru.github.dmitriy.javadevcoursefinalproject.money.Money;
-import ru.github.dmitriy.javadevcoursefinalproject.bank.Atm;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Setter
 @Getter
 @AllArgsConstructor
+@Component("Ivan Ivanov")
 public class Client {
     private DebitCard card;
-    private Money cash;
     private String name;
 
-    public void takeMoneyFromDebitCard(Atm atm, Money money) throws Exception {
-            atm.takeMoney(this, card, money);
+    public void takeMoneyFromDebitCard(Atm atm, Money money, @Min(0000) @Max(9999) int pin) throws CardDataFatalException, CardDataException {
+            atm.takeMoney(this, card, money, pin);
     }
 }
